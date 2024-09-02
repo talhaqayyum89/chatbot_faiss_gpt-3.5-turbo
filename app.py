@@ -27,7 +27,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-os.environ["OPENAI_API_KEY"] = "sk-proj-S0UafT4NctXaAE9HZYBGT3BlbkFJH0an8rUfPj6oJk6t6qvZ"
+os.environ["OPENAI_API_KEY"] = ""
 
 
 # Set file path
@@ -133,7 +133,7 @@ def llm_pipeline(file_path):
 
     vector_store = FAISS.from_documents(document_answer_gen, embeddings)
 
-    llm_answer_gen = ChatOpenAI(temperature=0.1, model="gpt-3.5-turbo")
+    llm_answer_gen = ChatOpenAI(temperature=0.1, model="gpt-3.5-turb")
 
     ques_list = ques.split("\n")
     filtered_ques_list = [element for element in ques_list if element.endswith('?') or element.endswith('.')]
